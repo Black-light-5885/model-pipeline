@@ -26,28 +26,16 @@ except Exception as e:
 
 
 
-S3_ROOT_PATH ="s3://tcpl-buyingdecision/buying-decision-data"
-
 S3_ROOT_PATH2 ="bgdn-pre-prod"
 # Following dictionary contains the location for fetching the data
 GLOBAL_PATHS= "removed"
 BACKEND_ROOT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 
-# The following list contains the TCPL ID's which are in competitor competitor dataframe that needs to be removed from the competitor item table
-TCPL_COMPT_ID = [
-    4323,
-    4035,
-    2049,
-    4046,
-    4045,
-    4001,
-    4047
-]
+
 RUN_DATE = datetime.date.today().strftime("%d-%b-%y")
 RUN_DATE = '2024-05-24 00:00:00'
 
-TCPL_GUARDRAIL = False
 
 REQUIRED_COLS= { 
                         "BUYING_TYPE_MASTER":[] ,
@@ -79,7 +67,7 @@ BUCKET_NAME = "tcpl-buyingdecision"
 
 # ------- Functions-------------------------------
 def get_file_from_s3(path:str):
-    bucket = "tcpl-buyingdecision"
+    bucket = "-buyingdecision"
     # Initialize the S3 client
     s3 = boto3.client('s3')
     # List objects within the folder
